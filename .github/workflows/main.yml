@@ -18,11 +18,7 @@ jobs:
 
       - name: Download files
         run: |
-          wget https://www.accountplusfinance.com/selenium/base_code/anchor_tags.py
-          wget https://www.accountplusfinance.com/selenium/base_code/drive_driver.py
-          wget https://www.accountplusfinance.com/selenium/base_code/initiate_driver.py
-          wget https://www.accountplusfinance.com/selenium/base_code/master.py
-          wget https://www.accountplusfinance.com/selenium/base_code/user_agents.py
+          wget -O newuseragents.csv https://www.accountplusfinance.com/selenium/useragents.csv
 
       - name: Commit changes
         run: |
