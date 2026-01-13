@@ -1,7 +1,7 @@
 name: Run Selenium Script
 
 on:
-  workflow_dispatch:   # run manually
+  workflow_dispatch: # Run Manually
 
 jobs:
   run:
@@ -11,10 +11,18 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install system dependencies
+      - name: Install Chromium (Snap)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-chromedriver
+          sudo snap install chromium
+
+      - name: Install ChromeDriver matching Chromium
+        run: |
+          CHROMIUM_VERSION=$(chromium --version | awk '{print $2}')
+          DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_$CHROMIUM_VERSION")
+          wget -q "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$DRIVER_VERSION/linux64/chromedriver-linux64.zip"
+          unzip chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Install Python dependencies
         run: |
@@ -25,3 +33,4 @@ jobs:
         env:
           PYTHONUNBUFFERED: 1
         run: python master.py
+
