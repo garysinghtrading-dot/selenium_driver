@@ -5,20 +5,21 @@ on:
 
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Chromium (Snap)
+      - name: Install Google Chrome
         run: |
-          sudo snap install chromium
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 
-      - name: Install ChromeDriver matching Chromium
+      - name: Install ChromeDriver matching Chrome
         run: |
-          CHROMIUM_VERSION=$(chromium --version | awk '{print $2}')
-          DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_$CHROMIUM_VERSION")
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_$CHROME_VERSION")
           wget -q "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$DRIVER_VERSION/linux64/chromedriver-linux64.zip"
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
@@ -33,4 +34,3 @@ jobs:
         env:
           PYTHONUNBUFFERED: 1
         run: python master.py
-
