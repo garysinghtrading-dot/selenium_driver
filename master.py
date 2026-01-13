@@ -29,7 +29,7 @@ for ua in range(0, len(all_user_agents)):
     urlNavTo = newAObject.get_starting_url() # url to get
     driver = initiate_driver.setDriver(user_profile_path, all_user_agents[ua])
     try:
-        drive_driver.driver_driver(driver=driver, url=urlNavTo, a_tag=None, value_repeat=0)
+        drive_driver.driver_driver(driver=driver, url=urlNavTo)
         print(ua, "done")
     except TimeoutException as e:
         print("Timeout exception occured")
