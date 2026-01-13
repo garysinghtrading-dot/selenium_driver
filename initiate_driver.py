@@ -9,4 +9,3 @@ def setDriver(pathToProfile, u_a):
     chrome_options.add_argument(f"user-agent={u_a}")
 
     return webdriver.Chrome(options=chrome_options)
- driver 
