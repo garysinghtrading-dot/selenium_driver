@@ -5,9 +5,9 @@ from bs4 import BeautifulSoup
 class GetAnchorTagUrl:
 	def __init__(self):
 		self.urls = [
-      "http://www.accountplusfinance.com/education",
-      "http://www.accountplusfinance.com/insights",
-      "http://www.accountplusfinance.com/ideas",
+      "https://www.accountplusfinance.com/education",
+      "https://www.accountplusfinance.com/insights",
+      "https://www.accountplusfinance.com/ideas",
     ] # list of urls to start from
 		self.base_url = "http://www.accountplusfinance.com"
 
