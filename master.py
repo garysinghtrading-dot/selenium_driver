@@ -38,4 +38,4 @@ for ua in range(245, len(all_user_agents)):
         driver.quit()
     except:
         print("driver already quitted")
-    remove_user_profile(user_profile_path) # remove user profile data
+    #remove_user_profile(user_profile_path) # remove user profile data
