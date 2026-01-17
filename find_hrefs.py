@@ -11,6 +11,9 @@ def find_and_hover_anchor_tags(driver, steps=30, delay=0.02):
 
     elements = driver.find_elements(By.CSS_SELECTOR, "a[href]:not([href*='accountplusfinance.com'])")
 
+    # Define counter
+    elem_count=0
+
     for el in elements:
         try:
             # Get element location and size
@@ -64,6 +67,8 @@ def find_and_hover_anchor_tags(driver, steps=30, delay=0.02):
 
             # Perform the full movement
             actions.perform()
+            elem_count+=1
 
         except Exception as e:
             print(f"Error moving over element: {e}")
+    print(f"Number of elements found hoverable: {elem_count}")
