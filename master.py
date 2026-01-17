@@ -25,7 +25,7 @@ newAObject = anchor_tags.GetAnchorTagUrl() # object created
 # customer user profile path
 user_profile_path = ""
 
-for ua in range(117, len(all_user_agents)):
+for ua in range(182, len(all_user_agents)):
     urlNavTo = newAObject.get_starting_url() # url to get
     driver = initiate_driver.setDriver(user_profile_path, all_user_agents[ua])
     try:
