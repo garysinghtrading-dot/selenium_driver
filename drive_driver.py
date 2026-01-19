@@ -205,7 +205,7 @@ def driver_driver(driver, url):
 
             # new page has been visited, now we decide if we are to visit a new page or not
             else:
-				cont_or_not = driver_d.newPageOrNO()
+                cont_or_not = driver_d.newPageOrNO()
                 if cont_or_not:
                     new_url_to_visit_2 = getNewPage.getUrl(driver) # new url
                     if new_url_to_visit_2 == None:
