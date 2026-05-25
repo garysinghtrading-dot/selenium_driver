@@ -9,7 +9,7 @@ class GetAnchorTagUrl:
       "https://www.accountplusfinance.com/insights",
       "https://www.accountplusfinance.com/ideas",
     ] # list of urls to start from
-		self.base_url = "http://www.accountplusfinance.com"
+		self.base_url = "https://www.accountplusfinance.com"
 
 	def set_start_url(self):
 		rand_int = random.randint(0, len(self.urls)-1)
